@@ -1,0 +1,21 @@
+$blue: #00f;
+ @font-face {
+   font-family: 'MyFont';
+   src:  url('../fonts/RidleyGrotesk-BlackItalic.otf');
+   font-weight: 600;
+   font-style: normal;
+ }
+
+.blue {
+  font-family: "MyFont";
+  color: $blue;
+  background: url(../images/image2.png);
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+}
+
+
+.red {
+  background: url(../images/image3.jpeg);
+}
