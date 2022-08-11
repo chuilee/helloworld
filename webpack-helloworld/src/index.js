@@ -1,17 +1,16 @@
 import _ from "lodash";
-import Image1 from './images/image1.webp';
-import "./styles/main.scss";
+import printMe from "./print.js";
 
 function component() {
-  let element = document.createElement("div");
-  // lodash（目前通过一个 script 引入）对于执行这一行是必需的
+  var element = document.createElement("div");
+  var btn = document.createElement("button");
+
   element.innerHTML = _.join(["Hello", "webpack"], " ");
-  element.classList.add("blue");
 
-  let image1 = document.createElement('img')
-  image1.src = Image1;
+  btn.innerHTML = "点击这里，然后查看 console！";
+  btn.onclick = printMe;
 
-  element.appendChild(image1);
+  element.appendChild(btn);
 
   return element;
 }
