@@ -8,10 +8,17 @@ const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const devMode = process.env.NODE_ENV !== "production";
 
 module.exports = {
-  mode: "production",
+  mode: "development",
   entry: {
-    print: "./src/print.js",
     app: "./src/index.js",
+  },
+  devtool: "inline-source-map",
+  devServer: {
+    static: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 9000,
+    open: true,
+    hot: true,
   },
   output: {
     filename: "[name].bundle.js",
@@ -21,7 +28,7 @@ module.exports = {
     new webpack.ProgressPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: "管理输出",
+      title: "开发环境",
     }),
     new WebpackManifestPlugin()
   ],
