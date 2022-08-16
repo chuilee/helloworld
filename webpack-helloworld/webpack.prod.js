@@ -9,6 +9,14 @@ module.exports = merge(common, {
   devtool: 'source-map',
   optimization: {
     splitChunks: {
+      chunks: 'all',
+      minSize: 30000,
+      maxSize: 0,
+      minChunks: 1,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      automaticNameDelimiter: '~',
+      name: true,
       cacheGroups: {
         styles: {
           name: 'styles',
