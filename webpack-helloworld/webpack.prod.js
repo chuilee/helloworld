@@ -1,7 +1,8 @@
 const { merge } = require("webpack-merge");
 const TerserJSPlugin = require("terser-webpack-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin"); // 会导致app.bundle.js文件体积增大 是哪里使用不对么?
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin"); 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const common = require("./webpack.common.js");
 
 module.exports = merge(common, {
@@ -66,6 +67,7 @@ module.exports = merge(common, {
     ],
   },
   plugins: [
+    new BundleAnalyzerPlugin(),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional

@@ -28,6 +28,7 @@
     "terser-webpack-plugin": "^4.2.3",
     "url-loader": "^4.1.1",
     "webpack": "^4.46.0",
+    "webpack-bundle-analyzer": "^4.5.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-middleware": "^5.3.3",
     "webpack-dev-server": "^4.10.0",
@@ -37,5 +38,8 @@
   "dependencies": {
     "lodash": "^4.17.21"
   },
-  "sideEffects": ["**/*.scss","**/*.css"]
+  "sideEffects": [
+    "**/*.scss",
+    "**/*.css"
+  ]
 }
