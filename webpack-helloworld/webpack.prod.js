@@ -4,11 +4,13 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const common = require("./webpack.common.js");
+const webpack = require("webpack");
 
 module.exports = merge(common, {
   mode: "production",
   devtool: 'source-map',
   optimization: {
+    runtimeChunk: 'single',
     splitChunks: {
       chunks: 'all',
       minSize: 30000,
@@ -24,6 +26,11 @@ module.exports = merge(common, {
           test: /\.css$/,
           chunks: 'all',
           enforce: true
+        },
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
         }
       }
     },
@@ -67,12 +74,13 @@ module.exports = merge(common, {
     ],
   },
   plugins: [
+    new webpack.HashedModuleIdsPlugin(),
     new BundleAnalyzerPlugin(),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
       filename: "[name].[hash].css",
-      chunkFilename: "[id].[hash].css",
+      chunkFilename: "[name].[hash].css",
     })
   ],
 });
