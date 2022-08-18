@@ -1,26 +1,27 @@
+import _ from "lodash";
 import printMe from "./print.js";
-import './scss/main.scss';
+import "./scss/main.scss";
 
 function component() {
-  return import(/* webpackChunkName: "lodash" */'lodash').then(({default: _ }) => {
-    var element = document.createElement("div");
-    var btn = document.createElement("button");
-    element.innerHTML = _.join(["Hello", "webpack"], " ");
+  var element = document.createElement("div");
+  var button = document.createElement("button");
+  var br = document.createElement("br");
 
-    btn.innerHTML = "点击这里，然后查看 console！";
-    btn.onclick = printMe;
+  button.innerHTML = "Click me and look at the console!";
+  element.innerHTML = _.join(["Hello", "webpack"], " ");
+  element.appendChild(br);
+  element.appendChild(button);
 
-    element.appendChild(btn);
+  // Note that because a network request is involved, some indication
+  // of loading would need to be shown in a production-level site/app.
+  button.onclick = (e) =>
+    import(/* webpackChunkName: "print" */ "./print").then((module) => {
+      var print = module.default;  // 注意当调用 ES6 模块的 import() 方法（引入模块）时，必须指向模块的 .default 值，因为它才是 promise 被处理后返回的实际的 module 对象。
 
-    return element;
-  }).catch(error => 'An error occurred while loading the component');
+      print();
+    });
+
+  return element;
 }
 
 document.body.appendChild(component());
-
-if (module.hot) {
-  module.hot.accept("./print.js", function () {
-    console.log("Accepting the updated printMe module!");
-    printMe();
-  });
-}
