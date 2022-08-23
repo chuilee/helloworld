@@ -1,46 +1,28 @@
 {
-  "name": "webpack-helloworld",
+  "name": "webpack-library-helloworld",
   "version": "1.0.0",
   "description": "",
   "private": true,
+  "main": "dist/webpack-numbers.js",
+  "module": "src/index.js",
   "scripts": {
-    "build": "webpack --config webpack.prod.js",
-    "start": "webpack-dev-server --config webpack.dev.js",
-    "server": "node server.js",
+    "build:browser": "webpack && cp dist/webpack-numbers.js examples/browser",
+    "build:node": "webpack && cp dist/webpack-numbers.js examples/node/ && node examples/node/example.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "chuilee",
   "license": "ISC",
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-env": "^1.6.1",
     "clean-webpack-plugin": "^4.0.0",
-    "css-loader": "^5.0.0",
-    "express": "^4.18.1",
-    "file-loader": "^6.2.0",
-    "html-webpack-plugin": "^4.0.0",
-    "image-webpack-loader": "^8.1.0",
-    "mini-css-extract-plugin": "^1.6.1",
-    "node-sass": "^7.0.1",
-    "optimize-css-assets-webpack-plugin": "^6.0.1",
-    "postcss-loader": "^4.0.1",
-    "sass-loader": "^10.0.0",
-    "style-loader": "^2.0.0",
-    "terser-webpack-plugin": "^4.2.3",
-    "url-loader": "^4.1.1",
     "webpack": "^4.46.0",
-    "webpack-bundle-analyzer": "^4.5.0",
-    "webpack-cli": "^4.10.0",
-    "webpack-dev-middleware": "^5.3.3",
-    "webpack-dev-server": "^4.10.0",
-    "webpack-manifest-plugin": "^4.0.0",
-    "webpack-merge": "^5.8.0"
+    "webpack-cli": "^4.10.0"
   },
   "dependencies": {
-    "lodash": "^4.17.21",
-    "moment": "^2.29.4"
-  },
-  "sideEffects": [
-    "**/*.scss",
-    "**/*.css"
-  ]
+    "lodash": "^4.17.21"
+  }
 }
