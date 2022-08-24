@@ -1,4 +1,4 @@
-import join from "lodash/join";
+// import join from "lodash/join";
 import "./scss/main.scss";
 function component() {
   var element = document.createElement("div");
@@ -22,3 +22,7 @@ function component() {
 }
 
 document.body.appendChild(component());
+
+let test = {}
+
+console.log(test?.name);

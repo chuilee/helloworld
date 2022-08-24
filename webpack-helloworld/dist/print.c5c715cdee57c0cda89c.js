@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{dSPy:function(o,e,n){"use strict";function t(){console.log("aaaa")}n.r(e),n.d(e,"testA",(function(){return t})),console.log("The print.js module has loaded! See the network tab in dev tools..."),e.default=()=>{console.log('Button Clicked: Here\'s "some text"!')}}}]);
-//# sourceMappingURL=print.c5c715cdee57c0cda89c.js.map
