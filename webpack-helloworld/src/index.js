@@ -1,5 +1,16 @@
 // import join from "lodash/join";
 import "./scss/main.scss";
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js').then(registration => {
+      console.log('SW registered: ', registration);
+    }).catch(registrationError => {
+      console.log('SW registration failed: ', registrationError);
+    });
+  });
+}
+
 function component() {
   var element = document.createElement("div");
   var button = document.createElement("button");
@@ -22,7 +33,3 @@ function component() {
 }
 
 document.body.appendChild(component());
-
-let test = {}
-
-console.log(test?.name);

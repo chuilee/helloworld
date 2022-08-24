@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "start": "webpack-dev-server --config webpack.dev.js",
-    "server": "node server.js",
+    "serve:dist": "http-server dist",
+    "serve": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -22,6 +23,7 @@
     "express": "^4.18.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^4.0.0",
+    "http-server": "^14.1.1",
     "image-webpack-loader": "^8.1.0",
     "imports-loader": "^4.0.1",
     "mini-css-extract-plugin": "^1.6.1",
@@ -38,7 +40,8 @@
     "webpack-dev-middleware": "^5.3.3",
     "webpack-dev-server": "^4.10.0",
     "webpack-manifest-plugin": "^4.0.0",
-    "webpack-merge": "^5.8.0"
+    "webpack-merge": "^5.8.0",
+    "workbox-webpack-plugin": "^6.5.4"
   },
   "dependencies": {
     "lodash": "^4.17.21",

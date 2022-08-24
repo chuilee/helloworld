@@ -1,4 +1,5 @@
 const { merge } = require("webpack-merge");
+const WorkboxPlugin = require('workbox-webpack-plugin');
 const TerserJSPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin"); 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -76,6 +77,12 @@ module.exports = merge(common, {
   plugins: [
     new webpack.HashedModuleIdsPlugin(),
     new BundleAnalyzerPlugin(),
+    new WorkboxPlugin.GenerateSW({
+      // 这些选项帮助快速启用 ServiceWorkers
+      // 不允许遗留任何“旧的” ServiceWorkers
+      clientsClaim: true,
+      skipWaiting: true
+    }),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional

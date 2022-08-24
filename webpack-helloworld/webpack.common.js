@@ -42,7 +42,7 @@ module.exports = {
       join: ['lodash', 'join'] // 能够进行tree shaking
     }),
     new HtmlWebpackPlugin({
-      title: "生产环境",
+      title: '渐进式网络应用程序'
     })
   ],
 };
