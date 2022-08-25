@@ -1,6 +1,7 @@
 // import join from "lodash/join";
+import { join } from "lodash";
 import "./scss/main.scss";
-
+import "./svg/kefu.svg";
 // 注册 service work
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
@@ -16,11 +17,13 @@ function component() {
   var element = document.createElement("div");
   var button = document.createElement("button");
   var br = document.createElement("br");
+  var img = document.createElement("img");
 
   button.innerHTML = "Click me and look at the console!";
   element.innerHTML = join(["Hello", "webpack"], " ");
   element.appendChild(br);
   element.appendChild(button);
+
 
   // Note that because a network request is involved, some indication
   // of loading would need to be shown in a production-level site/app.

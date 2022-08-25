@@ -1,10 +1,11 @@
 const { merge } = require("webpack-merge");
-const WorkboxPlugin = require('workbox-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TerserJSPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin"); 
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const common = require("./webpack.common.js");
+const WorkboxPlugin = require('workbox-webpack-plugin');
 const webpack = require("webpack");
 
 module.exports = merge(common, {
@@ -75,6 +76,7 @@ module.exports = merge(common, {
     ],
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new webpack.HashedModuleIdsPlugin(),
     new BundleAnalyzerPlugin(),
     new WorkboxPlugin.GenerateSW({
