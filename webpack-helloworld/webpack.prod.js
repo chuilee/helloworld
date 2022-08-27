@@ -1,3 +1,4 @@
+const path = require("path");
 const { merge } = require("webpack-merge");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TerserJSPlugin = require("terser-webpack-plugin");
@@ -11,6 +12,10 @@ const webpack = require("webpack");
 module.exports = merge(common, {
   mode: "production",
   devtool: 'source-map',
+  output: {
+    filename: "[name].[hash].js",
+    path: path.resolve(__dirname, "dist"),
+  },
   optimization: {
     runtimeChunk: 'single',
     splitChunks: {
