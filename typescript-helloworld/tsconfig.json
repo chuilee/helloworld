@@ -1,6 +1,12 @@
 {
+  "compileOnSave": true,
   "compilerOptions": {
     "outDir": "./dist/",
+    "baseUrl": ".",
+    "paths": {
+      "@helper/*": ["src/helper/*"],
+      "@utils/*": ["src/utils/*"]
+    },
     "sourceMap": true,
     "noImplicitAny": true,
     "module": "ESNext",

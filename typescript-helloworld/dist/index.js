@@ -1,3 +1,4 @@
+import { log } from "./utils";
 // 1、TypeScript 中如何联合枚举类型的 Key?
 var enumType;
 (function (enumType) {
@@ -50,10 +51,10 @@ var StuLogin = /** @class */ (function () {
     return StuLogin;
 }());
 var stu = new StuLogin({
-    name: "string",
+    name: "stri2ng",
     age: 123,
     code: "string",
     comeFrom: "come from",
 });
-console.log(stu.getFrom());
+log(stu.getFrom());
 //# sourceMappingURL=index.js.map

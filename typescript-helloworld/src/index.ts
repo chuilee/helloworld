@@ -1,3 +1,5 @@
+import { log } from "@utils/index";
+
 // 1、TypeScript 中如何联合枚举类型的 Key?
 enum enumType {
   A,
@@ -92,10 +94,10 @@ class StuLogin implements LoginData {
 }
 
 let stu = new StuLogin({
-  name: "string",
+  name: "stri2ng",
   age: 123,
   code: "string",
   comeFrom: "come from",
 });
 
-console.log(stu.getFrom());
+log(stu.getFrom());
