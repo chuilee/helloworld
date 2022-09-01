@@ -1,20 +1,20 @@
-const path = require("path");
-const { merge } = require("webpack-merge");
+const path = require('path');
+const { merge } = require('webpack-merge');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const TerserJSPlugin = require("terser-webpack-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin"); 
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const common = require("./webpack.common.js");
+const TerserJSPlugin = require('terser-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const common = require('./webpack.common.js');
 const WorkboxPlugin = require('workbox-webpack-plugin');
-const webpack = require("webpack");
+const webpack = require('webpack');
 
 module.exports = merge(common, {
-  mode: "production",
+  mode: 'production',
   devtool: 'source-map',
   output: {
-    filename: "[name].[hash].js",
-    path: path.resolve(__dirname, "dist"),
+    filename: '[name].[hash].js',
+    path: path.resolve(__dirname, 'dist'),
   },
   optimization: {
     runtimeChunk: 'single',
@@ -52,21 +52,21 @@ module.exports = merge(common, {
         test: /\.(sa|sc|c)ss$/,
         use: [
           MiniCssExtractPlugin.loader,
-          "css-loader",
-          "sass-loader",
+          'css-loader',
+          'sass-loader',
         ],
       },
       {
         test: /\.(png|svg|jpe?g|gif|webp)$/,
         use: [
           {
-            loader: "url-loader",
+            loader: 'url-loader',
             options: {
               limit: 6192,
             },
           },
           {
-            loader: "image-webpack-loader",
+            loader: 'image-webpack-loader',
             options: {
               bypassOnDebug: true, // webpack@1.x
               disable: true, // webpack@2.x and newer
@@ -76,7 +76,7 @@ module.exports = merge(common, {
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: ["file-loader"],
+        use: ['file-loader'],
       },
     ],
   },
@@ -93,8 +93,8 @@ module.exports = merge(common, {
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: "[name].[hash].css",
-      chunkFilename: "[name].[hash].css",
+      filename: '[name].[hash].css',
+      chunkFilename: '[name].[hash].css',
     })
   ],
 });

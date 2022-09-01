@@ -13,6 +13,6 @@ app.use(webpackDevMiddleware(compiler, {
 }));
 
 // 将文件 serve 到 port 3000。
-app.listen(3100, function () {
+app.listen(3100, () => {
   console.log('Example app listening on port 3100!\n');
 });

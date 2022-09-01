@@ -1,15 +1,15 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const webpack = require("webpack"); // to access built-in plugins
+const webpack = require('webpack'); // to access built-in plugins
 
 module.exports = {
   entry: {
-    app: "./src/index.ts",
+    app: './src/index.ts',
   },
   output: {
-    filename: "[name].[hash].js",
-    path: path.resolve(__dirname, "dist"),
+    filename: '[name].[hash].js',
+    path: path.resolve(__dirname, 'dist'),
   },
   module: {
     rules: [
@@ -24,13 +24,13 @@ module.exports = {
       // },
       {
         test: /\.js$/,
-        include: path.resolve(__dirname, "src"),
+        include: path.resolve(__dirname, 'src'),
         exclude: /(node_modules|bower_components)/,
         use: [
           {
-            loader: "babel-loader",
+            loader: 'babel-loader',
             options: {
-              presets: ["@babel/preset-env"],
+              presets: ['@babel/preset-env'],
             },
           },
         ],
@@ -39,7 +39,7 @@ module.exports = {
         test: /\.tsx?$/,
         use: [
           {
-            loader: "ts-loader",
+            loader: 'ts-loader',
             options: {
               transpileOnly: true,
               experimentalWatchApi: true,
@@ -51,7 +51,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: ['.tsx', '.ts', '.js'],
   },
   plugins: [
     new webpack.ProgressPlugin(),
@@ -61,7 +61,7 @@ module.exports = {
     }),
     new ForkTsCheckerWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: "渐进式网络应用程序",
+      title: '渐进式网络应用程序',
     }),
   ],
 };
