@@ -5,7 +5,11 @@
 </template>
 
 <style scoped>
-body {
-  font-size: 12px;
-}
+  body {
+    position: relative;
+    top: 20px;
+    width: 100vw;
+    font-size: 12px;
+    background: #000;
+  }
 </style>
