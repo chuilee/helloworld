@@ -5,7 +5,17 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
+    "prepare": "husky install",
+    "lint:stylelint": "stylelint --cache --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
+    "lint:eslint": "eslint --cache --max-warnings 0  \"{src,mock}/**/*.{vue,ts,tsx,js}\" --fix",
+    "changelog": "conventional-changelog -p custom-config -i CHANGELOG.md -s -r 0  -n ./changelog-option.js && git add CHANGELOG.md",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "changelog": {
+    "bugsUrl": "https://github.com/chuilee/helloworld/issues/",
+    "emojis": true,
+    "authorName": true,
+    "authorEmail": true
   },
   "repository": {
     "type": "git",
@@ -24,6 +34,8 @@
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
     "@typescript-eslint/parser": "^5.36.1",
+    "conventional-changelog-cli": "^2.2.2",
+    "conventional-changelog-custom-config": "^0.3.1",
     "eslint": "^8.23.0",
     "eslint-plugin-html": "^7.1.0",
     "eslint-plugin-vue": "^9.4.0",
