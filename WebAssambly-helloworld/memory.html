@@ -1,0 +1,47 @@
+<!--
+ * @Author       : conghui li conghui.li@shengyc.com
+ * @Date         : 2022-09-26 15:00:11
+ * @LastEditors  : conghui li conghui.li@shengyc.com
+ * @LastEditTime : 2022-09-26 16:17:47
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="module">
+      import { fetchAndInstantiate } from './utils.js';
+      const memory = new WebAssembly.Memory({ initial: 10, maximum: 100 });
+      //   new Uint32Array(memory.buffer)[0] = 42;
+      //   console.log(new Uint32Array(memory.buffer)[0]);
+
+      //   WebAssembly.instantiateStreaming(fetch('memory.wasm'), { js: { mem: memory } }).then(
+      //     results => {
+      //       // 在这里加入你的代码
+      //       const summands = new Uint32Array(memory.buffer);
+      //       // eslint-disable-next-line no-plusplus
+      //       for (let i = 0; i < 10; i++) {
+      //         summands[i] = i;
+      //       }
+      //       const sum = results.instance.exports.accumulate(0, 10);
+      //       console.log(sum);
+      //     }
+      //   );
+
+      fetchAndInstantiate('./memory.wasm', { js: { mem: memory } }).then(instance => {
+        // 在这里加入你的代码
+        const summands = new Uint32Array(memory.buffer);
+        // eslint-disable-next-line no-plusplus
+        for (let i = 0; i < 10; i++) {
+          summands[i] = i;
+        }
+        const sum = instance.exports.accumulate(0, 10);
+        console.log(sum);
+      });
+    </script>
+  </body>
+</html>

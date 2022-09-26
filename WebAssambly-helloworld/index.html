@@ -1,0 +1,40 @@
+<!--
+ * @Author       : conghui li conghui.li@shengyc.com
+ * @Date         : 2022-09-26 14:42:03
+ * @LastEditors  : conghui li conghui.li@shengyc.com
+ * @LastEditTime : 2022-09-26 16:23:17
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Simple template</title>
+  </head>
+  <body>
+    <script type="module">
+      import { fetchAndInstantiate } from './utils.js';
+      const memory = new WebAssembly.Memory({ initial: 10, maximum: 100 });
+      const importObject = {
+        imports: {
+          // eslint-disable-next-line camelcase
+          imported_func(arg) {
+            console.log(arg);
+          },
+        },
+      };
+      //   fetch('simple.wasm')
+      //     .then(res => {
+      //       return res.arrayBuffer();
+      //     })
+      //     .then(bytes => {
+      //       return WebAssembly.instantiate(bytes, importObject);
+      //     })
+      //     .then(results => {
+      //       results.instance.exports.exported_func();
+      //     });
+      fetchAndInstantiate('simple.wasm', importObject).then(instance => {
+        instance.exports.exported_func();
+      });
+    </script>
+  </body>
+</html>
