@@ -1,8 +1,8 @@
 /*
  * @Author       : liconghui conghui.li@shengyc.com
  * @Date         : 2022-09-01 14:52:29
- * @LastEditors  : liconghui conghui.li@shengyc.com
- * @LastEditTime : 2022-09-22 10:14:50
+ * @LastEditors  : conghui li conghui.li@shengyc.com
+ * @LastEditTime : 2022-09-26 17:52:47
  */
 // .commitlintrc.js
 /** @type {import('cz-git').UserConfig} */
@@ -14,7 +14,7 @@ module.exports = {
      * type[scope]: [function] description
      *      ^^^^^
      */
-    'scope-enum': [2, 'always', scopes],
+    'scope-enum': [1, 'always', scopes],
     'header-max-length': [2, 'always', 72],
     'type-case': [2, 'always', 'lower-case'],
     'type-empty': [2, 'never'],

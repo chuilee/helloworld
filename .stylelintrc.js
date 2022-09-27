@@ -1,7 +1,18 @@
+/*
+ * @Author       : conghui li conghui.li@shengyc.com
+ * @Date         : 2022-09-01 14:52:29
+ * @LastEditors  : conghui li conghui.li@shengyc.com
+ * @LastEditTime : 2022-09-27 09:02:39
+ */
 module.exports = {
   processors: [],
   plugins: [],
-  extends: ['stylelint-config-standard-scss', 'stylelint-config-recommended-vue/scss', 'stylelint-config-recess-order'],
+  extends: [
+    'stylelint-config-html/html',
+    'stylelint-config-standard-scss',
+    'stylelint-config-recommended-vue/scss',
+    'stylelint-config-recess-order',
+  ],
   rules: {
     'declaration-colon-space-after': 'always-single-line',
     'declaration-colon-space-before': 'never',
