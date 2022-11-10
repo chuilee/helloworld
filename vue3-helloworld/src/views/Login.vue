@@ -9,9 +9,9 @@
         :rules="[{ required: true, message: '请填写用户名' }]"
       />
       <van-field
-        v-model="password"
+        v-model="code"
         type="text"
-        name="password"
+        name="code"
         label="验证码"
         placeholder="验证码"
         :rules="[{ required: true, message: '请输入验证码' }]"
@@ -42,8 +42,8 @@
   };
 
   const username = ref('');
-  const password = ref('');
-  const onSubmit = async(values: LoginRequestData) => {
+  const code = ref('');
+  const onSubmit = async (values: LoginRequestData) => {
     console.log('submit1', values);
 
     const result = await sourceApi.login<LoginResponseData>({
